@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+// Function prototypes
+void add(double a, double b);
+void subtract(double a, double b);
+void multiply(double a, double b);
+void divide(double a, double b);
+
+int main() {
+    char operator;
+    double num1, num2;
+
+    // Display options to the user
+    printf("Select operation:\n");
+    printf(" + for addition\n");
+    printf(" - for subtraction\n");
+    printf(" * for multiplication\n");
+    printf(" / for division\n");
+    printf("Enter your choice: ");
+    scanf(" %c", &operator);
+
+    // Get the numbers from the user
+    printf("Enter two numbers: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    // Perform the operation based on user input
+    switch (operator) {
+        case '+':
+            add(num1, num2);
+            break;
+        case '-':
+            subtract(num1, num2);
+            break;
+        case '*':
+            multiply(num1, num2);
+            break;
+        case '/':
+            if (num2 != 0.0) {
+                divide(num1, num2);
+            } else {
+                printf("Error! Division by zero.\n");
+            }
+            break;
+        default:
+            printf("Error! Invalid operator.\n");
+            break;
+    }
+
+    return 0;
+}
+
+// Function to add two numbers
+void add(double a, double b) {
+    printf("Result: %.2lf\n", a + b);
+}
+
+// Function to subtract two numbers
+void subtract(double a, double b) {
+    printf("Result: %.2lf\n", a - b);
+}
+
+// Function to multiply two numbers
+void multiply(double a, double b) {
+    printf("Result: %.2lf\n", a * b);
+}
+
+// Function to divide two numbers
+void divide(double a, double b) {
+    printf("Result: %.2lf\n", a / b);
+}
